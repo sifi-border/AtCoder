@@ -56,6 +56,20 @@ public:
         }
     }
 
+    template <typename T>
+    RollingHash(const vector<T> &s)
+    {
+        int n = (int)s.size();
+        hashed.resize(n + 1);
+        powmemo.resize(n + 1);
+        powmemo[0] = 1;
+        for (int i = 0; i < n; ++i)
+        {
+            hashed[i + 1] = applyMod(mul(hashed[i], base) + s[i]);
+            powmemo[i + 1] = applyMod(mul(powmemo[i], base));
+        }
+    }
+
     //[l, r)
     inline yuzuki get(int l, int r) const
     {

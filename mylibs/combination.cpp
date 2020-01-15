@@ -4,12 +4,13 @@
 
 using namespace std;
 
-template <int p> struct Modint
+template <int p>
+struct Modint
 {
     int value;
 
     Modint() : value(0) {}
-    Modint(long x) : value(x >= 0 ? x % p : (p + x % p) % p) {}
+    Modint(long long x) : value(x >= 0 ? x % p : (p + x % p) % p) {}
 
     inline Modint &operator+=(const Modint &b)
     {
@@ -90,7 +91,7 @@ template <int p> struct Modint
 
     friend istream &operator>>(istream &is, Modint<p> &a)
     {
-        long t;
+        long long t;
         is >> t;
         a = Modint<p>(t);
         return is;
@@ -120,7 +121,7 @@ Int modpow(Int e, long x)
 
 class Comb
 {
-  public:
+public:
     vector<Int> fact, finv;
     Comb(int n) : fact(n + 1), finv(n + 1)
     {

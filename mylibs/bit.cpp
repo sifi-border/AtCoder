@@ -15,7 +15,7 @@ struct BIT
 
     BIT(int X)
     {
-        bit = vector<T>(X + 1, 0);
+        bit = vector<T>(X + 10, 0);
         N = X + 1;
         K = pow(2, (int)(log(X) / log(2)));
     }
